@@ -1,0 +1,14 @@
+version: "3.9"
+
+x-bot-variables: &bot-variables
+  TELEGRAM_BOT_TOKEN: ${TELEGRAM_BOT_TOKEN}
+
+services:
+  tgbot:
+    build: ./
+    environment:
+      <<: 
+        - *bot-variables
+    restart: always
+    volumes:
+      - .:/usr/src/app
